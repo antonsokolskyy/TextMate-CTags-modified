@@ -42,8 +42,20 @@
 	
 	our $DEBUG=0;
 	
+  sub ctagsFlagsExcludedFolders {
+    my $ctagsExcludeCommand = "";
+    if (  exists( $ENV{"TM_CTAGS_EXCLUDED_DIRECTORIES"} )  ){
+      my @excludedDirs = split(",", $ENV{"TM_CTAGS_EXCLUDED_DIRECTORIES"});
+    
+      foreach my $folder (@excludedDirs){
+        $ctagsExcludeCommand .= "--exclude=" . "$folder" . " ";
+      }
+    }
+    return "--config-filename=tm_ctags --fields=Kn --excmd=pattern -R " . $ctagsExcludeCommand;
+  }
+  
 	our $TagFileName=&setFromEnv('TmCtagsTagFileName','tmtags');
-	our $CtagsFlags=&setFromEnv('TmCtagsAlternateFlags','--config-filename=tm_ctags --fields=Kn --excmd=pattern -R');
+	our $CtagsFlags=&setFromEnv('TmCtagsAlternateFlags',&ctagsFlagsExcludedFolders);
 	our $CtagsOptFlags=&setFromEnv('TmCtagsFlags','');
 	our $AutoJump=&setFromEnv('TmCtagsAutoJump',1);
 	our $CtagsPGM=&setFromEnv('TmCtagsAlternatePgm', "$ENV{'TM_BUNDLE_SUPPORT'}/bin/ctags-objc");
@@ -188,7 +200,7 @@ sub getBundlerPaths {
   foreach my $file (@files) {
      $bundlerPaths .= $gemsDirectory . "$file" . "/gems/";
   }
-
+  print("Gems directories:" . $bundlerPaths, "\n");
   return $bundlerPaths;
 }
 sub getQuotedDirs {

@@ -8,4 +8,8 @@
 ##### How to install:  
 
 - install CTags bundle in TextMate preferences
-- copy tmctags in '~/Library/Application Support/TextMate/Managed/Bundles/CTags.tmbundle/Support/bin'
+- copy tmctags in '~/Library/Application Support/TextMate/Managed/Bundles/CTags.tmbundle/Support/bin'  
+
+##### Features:  
+
+- TM_CTAGS_EXCLUDED_DIRECTORIES variable allows exclude specific folders from being added to ctags(for example 'node_modules,bower_components,vendor_')
