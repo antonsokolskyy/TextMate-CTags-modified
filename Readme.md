@@ -12,4 +12,4 @@
 
 ##### Features:  
 
-- TM_CTAGS_EXCLUDED_DIRECTORIES variable allows exclude specific folders from being added to ctags(for example 'node_modules,bower_components,vendor_')
+- TM_CTAGS_EXCLUDED_DIRECTORIES variable allows to exclude specific folders from being added to ctags(for example 'node_modules,bower_components,vendor')
