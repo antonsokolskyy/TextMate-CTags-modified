@@ -186,7 +186,7 @@ sub getBundlerPaths {
   my $bundlerPaths = "";
 
   foreach my $file (@files) {
-     $bundlerPaths .= $gemsDirectory . "$file";
+     $bundlerPaths .= $gemsDirectory . "$file" . "/gems/";
   }
 
   return $bundlerPaths;
