@@ -13,4 +13,4 @@
 ##### Features:  
 
 - TM_CTAGS_EXCLUDED_DIRECTORIES variable allows to exclude specific folders from being added to ctags(for example 'node_modules,bower_components,vendor')  
-  *  "*.js,*.coffee,*.css,*.scss" works as well
+  -  "\*.js,\*.coffee,\*.css,\*.scss" works as well
